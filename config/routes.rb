@@ -1,5 +1,6 @@
 HerokuApp::Application.routes.draw do
 
+  get "qualtrics/empty"
   get "qualtrics/see"
   get "qualtrics/done"
 
