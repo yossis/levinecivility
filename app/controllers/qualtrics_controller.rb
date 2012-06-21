@@ -1,21 +1,39 @@
 class QualtricsController < ApplicationController
-  def empty
-  end
 
-  def see
-    if params[:stage].nil? || params[:SID].nil? || params[:participant_id].nil?
-      render 'empty'
+  def enter
+    ##THIS IS VERY SIMILAR TO ROUTING
+    if params[:participant_code].nil?
+     puts "Participant Code was NIL"
+     redirect_parameters = {
+       :controller => :qualtrics,
+       :action => :amazon_turk_faux
+     }
+    elsif Participant.find_by_code(params[:participant_code]).nil?
+      #create participant
+     redirect_parameters = {
+       :controller => :participants,
+       :action => :create,
+       :participant_code => params[:participant_code]
+     }
+    elsif Participant.find_by_code(params[:participant_code]).pairing.nil?
+      #redirect to pairing create
+      redirect_parameters = {
+        :controller => :pairings,
+        :action => :create,
+        :participant_id => Participant.find_by_code(params[:participant_code]).id
+      }      
     else
-      @stage = params[:stage].to_i    
-      if @stage==3
-        redirect_to :action => 'done'
-      end    
-      #making annonymous link assumption
-      @qualtrics_url = "http://wharton.qualtrics.com/SE/?SID="+params[:SID].to_s+"&participant_id="+params[:participant_id] +"&stage=" + (@stage+1).to_s 
+      redirect_parameters = {
+        :controller => :pairings,
+        :action => :play,
+        :id => Participant.find_by_code(params[:participant_code]).pairing.id,
+        :participant_id => Participant.find_by_code(params[:participant_code]).id
+      } 
     end
+    redirect_to redirect_parameters
   end
 
-  def done
+  def amazon_turk_faux
   end
 
 end

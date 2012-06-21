@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  pairing_id: 1
+  pairing_role: 1
+  money_transfer: 1.5
+  joined: 2012-06-20 10:41:16
+  last_contact: 2012-06-20 10:41:16
+
+two:
+  code: MyString
+  pairing_id: 1
+  pairing_role: 1
+  money_transfer: 1.5
+  joined: 2012-06-20 10:41:16
+  last_contact: 2012-06-20 10:41:16

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  participant_id: 1
+  which_conversation: 1
+  body: MyText
+
+two:
+  participant_id: 1
+  which_conversation: 1
+  body: MyText

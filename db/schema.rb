@@ -11,6 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120620144307) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "participant_id"
+    t.integer  "which_conversation"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pairings", :force => true do |t|
+    t.datetime "formed"
+    t.string   "progress"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participants", :force => true do |t|
+    t.string   "code"
+    t.integer  "pairing_id"
+    t.integer  "pairing_role"
+    t.float    "money_transfer"
+    t.datetime "joined"
+    t.datetime "last_contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

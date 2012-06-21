@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  formed: 2012-06-20 10:39:29
+  progress: MyString
+
+two:
+  formed: 2012-06-20 10:39:29
+  progress: MyString
