@@ -2,9 +2,9 @@ HerokuApp::Application.routes.draw do
 
   get "pairings/create"
   get "pairings/play"  
-  match "pairings/chat1"
+  match "pairings/chat"
+  get "pairings/end_chat"
   get "pairings/quiz_results"
-  get "pairings/chat2"
   get "pairings/money_decide"
   get "pairings/money_send"
   get "pairings/money_results"

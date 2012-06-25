@@ -1,0 +1,11 @@
+<p>These are your quiz results:</p>
+<p>blah blah</p>
+
+<p>These are your partner's quiz results:</p>
+<p>blah blah</p>
+
+<p>Now you will get one more chance to chat with your partner...</p>
+
+<%= form_tag(@redirect_params_continue, :id => "continue_button") do %>
+  <%= submit_tag("Continue") %>
+<% end %>

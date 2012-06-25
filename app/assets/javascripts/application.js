@@ -43,11 +43,21 @@ $(function() {
   }
 
   //redirect to qualtrics after a fixed period of chatting
-  if(window.location.pathname == '/pairings/chat1'){
+  if(window.location.pathname == '/pairings/chat'){
+    var participant_code = getParameterByName('participant_code');
     var participant_id = getParameterByName('participant_id');
+    var id = getParameterByName('id');
+    var which_chat = getParameterByName('which_chat');
     setInterval(function(){ 
-      //alert('Your chat time has finished and now you will be redirected back to your survey.');
-      //window.location = 'http://wharton.qualtrics.com/SE/?SID=SV_8GEE97brucNde6w&stage=2&participant_id=' + participant_id;
+      alert('Your chat time has finished and now you will be redirected back to your survey.');
+        if(which_chat == 1){
+          //window.location = 'http://wharton.qualtrics.com/SE/?SID=SV_8GEE97brucNde6w&stage=2&participant_code=' + participant_code;
+          window.location = '/pairings/end_chat?participant_code=' + participant_code + '&which_chat=' + which_chat + '&id=' + id;
+        }
+        if(which_chat == 2){
+          //window.location = 'http://wharton.qualtrics.com/SE/?SID=SV_8GEE97brucNde6w&stage=3&participant_code=' + participant_code;
+          window.location = '/pairings/end_chat?participant_code=' + participant_code + '&which_chat=' + which_chat + '&id=' + id;
+        }
     },20000);
   }
 

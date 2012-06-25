@@ -1,22 +1,70 @@
 This application is meant to work with a qualtrics survey study done by Livia Levine.
 
 TODO:
-
+*STOP AND refactor existing code
+*get stage3 functioning (play game)
+*get stage4 functioning (see results of game)
+*get stage5 functioning (goodbye)
+*create a way for livia to export data from this application
+(optional)
+*put a "waiting" before chat2
+*make an application configuration file
 *utelise messages#list if I can
+*?? make a webservice that returns the stage of a pairing
 *make faux amazon turk entry page if user enters with no parameters
 *make a user config file where one could enter the survey ID
-
+*set up some selenium tests
+*think about styles... what can I do to make it attractive and user friendly
 
 
 
 DONE: (in descending order of time)
+
+*get stage2 functioning (see results of quiz and another round of chatting) 4hrs
+*Controllers study 1hr
+June-25-2012 start of
 *get the messages list to update immediatly after pressing submit 0.5hrs
 *get stage one functioning 5 hrs
-June-21-2012
-*get stage1 functioning
-June-20-2012
+June-21-2012 start
+*get stage1 functioning 7hrs
+June-20-2012 start
 *get qualtrics prototype built - 1.5hrs
 *setup basic app and get deployed on heroku...fix installation issues, delete scss files  1.5hrs
-Jun-19-2012
+Jun-19-2012 start
 
+
+
+
+
+
+
+TIMELINE
+
+18 set up automated pairing app, communicate with livia AND setup unfuddle
+19(leadership sim testing - all morning) make the app
+20 make the actual app 
+21 make the actual app
+22(code retreat - all day)
+
+25 make the actual app
+26 make the actual app
+27 make sure heroku is adequate for hosting or try other service
+28 find people to try it out and get feedback
+29 find people to try it out and get feedback
+
+July
+2 find people to try it out and get feedback
+3 fun finishing touches
+4 fun finishing touches
+5 DONE
+6
+
+
+====================
+PAST TIMELINE
+11 OUT SICK
+12 finish setting up chat app/set up pairing app (challenges with ajax)
+13 finish setting up chat app/set up pairing app (figured out ajax)
+14 finish setting up chat app/set up pairing app (finished chat app)
+15 
 

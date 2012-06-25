@@ -46,8 +46,10 @@ class Participant < ActiveRecord::Base
     if self.pairing.nil? && partner.pairing.nil?
       new_pairing_id = Pairing.create(:formed => DateTime.now).id  
       self.pairing_id = new_pairing_id
+      self.pairing_role = 1
       self.save
       partner.pairing_id = new_pairing_id
+      partner.pairing_role = 2
       partner.save
       true
     else
