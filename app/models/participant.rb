@@ -2,6 +2,30 @@ class Participant < ActiveRecord::Base
   belongs_to :pairing
   has_many :messages
   
+  statuses = [
+    'exists',
+    'paired',
+    ''
+  ]
+  
+  def self.get_status_by_code(code)
+    participant = Participant.find_by_code(code)
+    if participant.nil?
+      'noexist'
+    else
+      participant.status
+    end
+  end
+
+  def status
+    if pairing.nil?
+      'exists_nopair'
+    elsif pairing.status.nil?
+      'exists_paired'
+    else
+      'exists_paired_' + status_data
+    end
+  end
   
   def self.find_or_create_by_code(code)
     participant = Participant.find_by_code(code)
@@ -37,6 +61,17 @@ class Participant < ActiveRecord::Base
     ! pairing_id.nil?
   end  
 
+  def final_payout
+    if money_transfer.nil? || partner.money_transfer.nil?
+      return nil
+    end
+    original_money = 5
+    if pairing_role == 1
+      original_money - money_transfer + partner.money_transfer
+    elsif pairing_role ==2
+      partner.money_transfer*3 - money_transfer
+    end
+  end
   
   private
 

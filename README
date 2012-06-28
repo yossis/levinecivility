@@ -1,25 +1,36 @@
 This application is meant to work with a qualtrics survey study done by Livia Levine.
 
 TODO:
-*STOP AND refactor existing code
-*get stage3 functioning (play game)
-*get stage4 functioning (see results of game)
-*get stage5 functioning (goodbye)
+*clean up the statuses (refactor)
+
+
+*figure out how to calculate # of correct quiz answers and display that in qualtrics
+*put on heroku & send to Livia!!
+*put in a better chat timer so that people don't timeout at different times
+*figure out how to deal with people who leave halfway through
+*put a wait in qualtrics so you don't see quiz results untill your partner has finished
 *create a way for livia to export data from this application
-(optional)
-*put a "waiting" before chat2
+*add amazon turk code to goodbye page
+*add wharton stylesheet
+*put validations in the money sending game
 *make an application configuration file
 *utelise messages#list if I can
 *?? make a webservice that returns the stage of a pairing
-*make faux amazon turk entry page if user enters with no parameters
-*make a user config file where one could enter the survey ID
 *set up some selenium tests
-*think about styles... what can I do to make it attractive and user friendly
-
+*think more about styles... what can I do to make it attractive and user friendly
 
 
 DONE: (in descending order of time)
-
+*finished with skeleton!! @2:35pm  (1hr lunch)
+*getting skeleton working start 10am
+start June 28th
+*post refactor debugging 3.5hrs
+*total redesign/refactoring 3hrs
+**add status_data and status method to Participant and Pairing
+**make status webservice for qualtrics to use
+**create authentication like setup
+**use before filter and an application controller function
+June-27-2012 start of
 *get stage2 functioning (see results of quiz and another round of chatting) 4hrs
 *Controllers study 1hr
 June-25-2012 start of
@@ -40,14 +51,12 @@ Jun-19-2012 start
 
 TIMELINE
 
-18 set up automated pairing app, communicate with livia AND setup unfuddle
-19(leadership sim testing - all morning) make the app
-20 make the actual app 
-21 make the actual app
-22(code retreat - all day)
-
 25 make the actual app
-26 make the actual app
+26 STUPID TESTING
+27 make the actual app
+28 make the actual app
+29 make the actual app
+
 27 make sure heroku is adequate for hosting or try other service
 28 find people to try it out and get feedback
 29 find people to try it out and get feedback
@@ -67,4 +76,10 @@ PAST TIMELINE
 13 finish setting up chat app/set up pairing app (figured out ajax)
 14 finish setting up chat app/set up pairing app (finished chat app)
 15 
+
+18 set up automated pairing app, communicate with livia AND setup unfuddle
+19(leadership sim testing - all morning) make the app
+20 make the actual app 
+21 make the actual app
+22(code retreat - all day)
 

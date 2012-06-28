@@ -1,0 +1,30 @@
+<h1>Collaboration#money_results</h1>
+
+<style type='text/css'>
+p.bold {font-weight:bold;}
+</style>
+
+<p>Here are the final results from the money game!</p>
+
+<% if @role == 1 %>
+<p>You sent your partner <%=@first_transfer%> dollars.</p>
+<p>Your partner received <%=@first_transfer*3%> dollars. 
+<p>Your partner sent you <%=@second_transfer%> dollars.</p>
+<p>Your partner ended up with <%=@final_payout_role2%> dollars.</p>
+<p class='bold'>You ended up with <%=@final_payout_role1%> dollars.</p>
+
+<% elsif @role == 2 %>
+<p>Your partner sent you <%=@first_transfer%> dollars.</p>
+<p>You received <%=@first_transfer*3%> dollars. 
+<p>You sent them <%=@second_transfer%> dollars.</p>
+<p>Your partner ended up with <%=@final_payout_role1%> dollars.</p>
+<p class='bold'>You ended up with <%=@final_payout_role2%> dollars.</p>
+
+<% end %>
+
+<%= form_tag(@next_step, :id => "continue_button") do %>
+  <%= submit_tag("Continue") %>
+<% end %>
+
+
+

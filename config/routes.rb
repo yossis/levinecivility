@@ -1,28 +1,20 @@
 HerokuApp::Application.routes.draw do
 
-  get "pairings/create"
-  get "pairings/play"  
-  match "pairings/chat"
-  get "pairings/end_chat"
-  get "pairings/quiz_results"
-  get "pairings/money_decide"
-  get "pairings/money_send"
-  get "pairings/money_results"
 
-  match "messages/create"
-  get "messages/list"
+  get 'participants/create' => 'participants#create'
+  get 'pairings/create' => 'pairings#create'
 
-  get "participants/enter_code"
-  get "participants/create"
-  get "participants/wait"
+  resources :messages, :only => [:create, :list]
+  #resources :pairings, :only => [:create]
+  #resources :participants, :only => [:create]
 
-  get "qualtrics/empty"
-  get "qualtrics/see"
-  get "qualtrics/done"  
-  get "qualtrics/amazon_turk_faux"
 
-  resources :samples
+  match 'collaboration/chat/:which_chat' => 'collaboration#chat', :which_chat => /1|2/
+  match 'collaboration/end_chat/:which_chat' => 'collaboration#end_chat', :which_chat => /1|2/
+  match 'collaboration/:action' => 'collaboration#:action'
 
-  root :to => 'qualtrics#enter'
+  match 'qualtrics/:action' => 'qualtrics#:action'
+
+  root :to => 'qualtrics#start'
 
 end

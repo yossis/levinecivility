@@ -2,7 +2,7 @@
 
 <a href="javascript:location.reload(true)">Refresh this page</a>
 
-<%= form_tag({:controller => :messages, :action => :create, :participant_id => params[:participant_id]}, :id=>'new_message', :method => 'post', :remote => 'true') do %>
+<%= form_tag({:controller => :messages, :action => :create}, :id=>'new_message', :method => 'post', :remote => 'true') do %>
   <%= label_tag(:messagebody, "Enter a new message:") %>
   <%= text_field_tag(:messagebody) %>
   <%= submit_tag("Submit") %>

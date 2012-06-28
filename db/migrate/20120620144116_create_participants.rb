@@ -7,6 +7,7 @@ class CreateParticipants < ActiveRecord::Migration
       t.float :money_transfer
       t.datetime :joined
       t.datetime :last_contact
+      t.string :status_data
 
       t.timestamps
     end
