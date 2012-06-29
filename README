@@ -2,6 +2,8 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
+*make an application configuration file
+*figure out how to detect server in code
 *put on heroku & send to Livia!!
 
 *figure out how to calculate # of correct quiz answers and display that in qualtrics
@@ -12,7 +14,7 @@ TODO:
 *add amazon turk code to goodbye page
 *add wharton stylesheet
 *put validations in the money sending game
-*make an application configuration file
+
 *utelise messages#list if I can
 *?? make a webservice that returns the stage of a pairing
 *set up some selenium tests
