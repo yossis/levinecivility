@@ -2,7 +2,7 @@ class QualtricsController < ApplicationController
 
   #this should handle all interactions with qualtrics
 
-  before_filter :find_participant_or_redirect, :except =>[:start, :no_participant]
+  before_filter :find_participant_or_redirect, :except =>[:start, :no_participant, :participant_status]
 
   def start
     code = params[:participant_code]
@@ -58,8 +58,12 @@ class QualtricsController < ApplicationController
 
   #webservice
   def participant_status
-    status = Participant.get_status_by_code(params[:participant_code])
-    render :json => {:status => status}
+    if params[:participant_code]
+      status = Participant.get_status_by_code(params[:participant_code])
+      render :json => {:status => status}
+    else
+      render :json => {:error => "Must supply participant code"}
+    end
   end
 
 end
