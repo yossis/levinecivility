@@ -62,9 +62,14 @@ class CollaborationController < ApplicationController
 
   def money_send
     @participant.money_transfer = params[:money_to_send]
-    @participant.status = "money_sent"
-    @participant.save
-    redirect_to :controller => 'qualtrics', :action => 'to_qualtrics'
+    if @participant.save
+      @participant.status = "money_sent"
+      @participant.save
+      redirect_to :controller => 'qualtrics', :action => 'to_qualtrics' and return
+    else
+      flash[:notice] = 'Bad value entered.'
+      redirect_to :action => 'money_decide' and return
+    end
   end
 
   def money_results

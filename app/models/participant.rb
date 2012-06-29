@@ -1,6 +1,25 @@
 class Participant < ActiveRecord::Base
   belongs_to :pairing
   has_many :messages
+  
+  #validates :money_transfer, :numericality => true, :on => :update
+  validate :validate_money_transfer_within_limits, :on => :update
+
+  def validate_money_transfer_within_limits
+    unless money_transfer_within_limits?
+      errors.add(:money_transfer, "not within limits")
+    end
+  end
+
+  def money_transfer_within_limits?
+    if money_transfer.nil?
+      true
+    elsif pairing_role == 1
+      money_transfer<=STARTING_MONEY_CONSTANT       
+    elsif pairing_role == 2
+      money_transfer<=(partner.money_transfer*3)
+    end
+  end  
     
   @@possible_statuses = [
     'exists',
@@ -113,7 +132,7 @@ class Participant < ActiveRecord::Base
     if money_transfer.nil? || partner.money_transfer.nil?
       return nil
     end
-    original_money = 5
+    original_money = STARTING_MONEY_CONSTANT
     if pairing_role == 1
       original_money - money_transfer + partner.money_transfer
     elsif pairing_role ==2

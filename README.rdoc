@@ -2,11 +2,9 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-*put validations in the money sending game
 *calculate # of correct quiz answers, communicate to rails app and display
-
-*add amazon turk code to goodbye page
-*add wharton stylesheet
+*add final payout amazon turk code to goodbye page
+*add wharton stylesheet & remove anything extremely ugly
 *integrate with existing survey
 
 *deal with people who leave halfway through completing survey
@@ -21,6 +19,7 @@ TODO:
 
 
 DONE: (in descending order of time)
+*put validations in the money sending game DONE at 6:09
 *make external constants file
 *put in a better chat timer so that people don't timeout at different times DONE at 4:13
 *make sure there is a wait time before chat2 DONE at 2:25

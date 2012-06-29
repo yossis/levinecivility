@@ -1,5 +1,10 @@
 <p>Money decide</p>
 
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <% if @is_role1 %>
 <p>You have <%=@starting_money%> dollars. You can choose to send as much as you like to your partner.
