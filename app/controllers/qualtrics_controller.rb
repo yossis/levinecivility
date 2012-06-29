@@ -14,13 +14,13 @@ class QualtricsController < ApplicationController
       case status
       when 'noexist'
         redirect_to :controller => 'participants', :action => 'create', :participant_code => params[:participant_code]
-      when 'exists_paired_chat1_complete'
+      when 'chat1_complete'
         redirect_to :controller => 'collaboration', :action => 'quiz_results'
-      when 'exists_paired_chat2_complete'
+      when 'chat2_complete'
         redirect_to :controller => 'collaboration', :action => 'money_decide'
-      when 'exists_paired_money_sent'
+      when 'money_sent'
         redirect_to :controller => 'collaboration', :action => 'money_results'
-      when 'exists_paired_results_viewed'
+      when 'money_results_viewed'
         good_bye
       else
         #TODO hmmm how should I handle these other cases???
@@ -33,13 +33,13 @@ class QualtricsController < ApplicationController
   def to_qualtrics
     sid = 'SV_8GEE97brucNde6w'
     case @participant.status
-    when 'exists_paired_chat1_complete'
+    when 'chat1_complete'
       stage = 2
-    when 'exists_paired_chat2_complete'
+    when 'chat2_complete'
       stage = 3
-    when 'exists_paired_money_sent'
+    when 'money_sent'
       stage = 4
-    when 'exists_paired_results_viewed'
+    when 'money_results_viewed'
       stage = 5
     else
       puts "Invalid status :#{@participant.status}: for redirect to qualtrics"

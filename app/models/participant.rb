@@ -1,11 +1,16 @@
 class Participant < ActiveRecord::Base
   belongs_to :pairing
   has_many :messages
-  
-  statuses = [
+    
+  @@possible_statuses = [
     'exists',
     'paired',
-    ''
+    'chat1_complete',
+    'quiz_finished',
+    'quiz_results_viewed',
+    'chat2_complete',
+    'money_sent',
+    'money_results_viewed'
   ]
   
   def self.get_status_by_code(code)
@@ -19,12 +24,22 @@ class Participant < ActiveRecord::Base
 
   def status
     if pairing.nil?
-      'exists_nopair'
-    elsif pairing.status.nil?
-      'exists_paired'
+      'exists'
+    elsif status_data.nil?  
+      'paired'
     else
-      'exists_paired_' + status_data
+      @@possible_statuses[status_data.to_i]
     end
+  end
+  
+  def status=(new_status)
+    self.status_data = @@possible_statuses.index(new_status)
+  end
+  
+  def here_or_further(test_status)
+    test_step = @@possible_statuses.index(test_status)
+    my_step = @@possible_statuses.index(status)
+    my_step >= test_step
   end
   
   def self.find_or_create_by_code(code)

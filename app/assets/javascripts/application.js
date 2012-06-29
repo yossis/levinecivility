@@ -43,7 +43,7 @@ $(function() {
     var chat_url_patt = new RegExp('/collaboration/chat/(1|2)');
     var matches = chat_url_patt.exec(window.location.pathname);
     var which_chat = matches[1];
-    setInterval(function(){ 
+    setTimeout(function(){ 
       alert('Your chat time has finished and now you will be redirected back to your survey.');
       window.location = '/collaboration/end_chat/' + which_chat;
     },20000);

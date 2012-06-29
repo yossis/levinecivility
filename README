@@ -1,11 +1,9 @@
 This application is meant to work with a qualtrics survey study done by Livia Levine.
 
 TODO:
-*clean up the statuses (refactor)
 
-
-*figure out how to calculate # of correct quiz answers and display that in qualtrics
 *put on heroku & send to Livia!!
+*figure out how to calculate # of correct quiz answers and display that in qualtrics
 *put in a better chat timer so that people don't timeout at different times
 *figure out how to deal with people who leave halfway through
 *put a wait in qualtrics so you don't see quiz results untill your partner has finished
@@ -21,6 +19,7 @@ TODO:
 
 
 DONE: (in descending order of time)
+*clean up the statuses (refactor) @9:30 (2hr beer break)
 *finished with skeleton!! @2:35pm  (1hr lunch)
 *getting skeleton working start 10am
 start June 28th

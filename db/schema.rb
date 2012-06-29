@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20120620171522) do
 
   create_table "pairings", :force => true do |t|
     t.datetime "formed"
-    t.string   "status_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
