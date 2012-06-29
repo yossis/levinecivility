@@ -31,7 +31,7 @@ class QualtricsController < ApplicationController
   end
 
   def to_qualtrics
-    sid = 'SV_8GEE97brucNde6w'
+    sid = QUALTRICS_SID_CONSTANT
     case @participant.status
     when 'chat1_complete'
       stage = 2
@@ -49,6 +49,7 @@ class QualtricsController < ApplicationController
   end
 
   def no_participant
+    @qualtrics_link = "http://wharton.qualtrics.com/SE/?SID=" + QUALTRICS_SID_CONSTANT
     render :amazon_turk_faux
   end
   
