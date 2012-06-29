@@ -1,12 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  if Rails.env == 'production'
-    QUALTRICS_SID_CONSTANT = 'SV_3WzzOUymYH3CGb2'
-  else
-    QUALTRICS_SID_CONSTANT = 'SV_8GEE97brucNde6w'
-  end
-  
   protected
   
   def find_participant_or_redirect

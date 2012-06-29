@@ -17,10 +17,12 @@ TODO:
 *figure out how to dry up the Exportable functions in my models
 *have role two complete the survey first
 
+
+
+
 DONE: (in descending order of time)
-
+*make external constants file
 *put in a better chat timer so that people don't timeout at different times DONE at 4:13
-
 *make sure there is a wait time before chat2 DONE at 2:25
 *separate first and second chats DONE at 1:51
 *create a data export function done at 12:14

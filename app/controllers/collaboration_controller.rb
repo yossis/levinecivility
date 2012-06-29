@@ -20,7 +20,7 @@ class CollaborationController < ApplicationController
   end
 
   def chat
-    @chat_length_sec = 20
+    @chat_length_sec = CHAT_LENGTH_CONSTANT
   
     @chat_start = @participant.pairing.chat_start
     @messages = @participant.pairing.messages.where("which_chat = ?", @participant.which_chat).order("created_at DESC")
@@ -48,7 +48,7 @@ class CollaborationController < ApplicationController
 
   def money_decide
     #decide how much money to send, or wait for partner
-    @starting_money = 5
+    @starting_money = STARTING_MONEY_CONSTANT
     @is_role1 = (@participant.pairing_role == 1)
     @is_role2 = (@participant.pairing_role == 2)
     if @participant.pairing_role == 2 
