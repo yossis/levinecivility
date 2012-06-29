@@ -2,13 +2,15 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-
-*put in a better chat timer so that people don't timeout at different times
-*deal with people who leave halfway through completing survey
+*put validations in the money sending game
 *calculate # of correct quiz answers, communicate to rails app and display
+
 *add amazon turk code to goodbye page
 *add wharton stylesheet
-*put validations in the money sending game
+*integrate with existing survey
+
+*deal with people who leave halfway through completing survey
+
 *utelise messages#list if I can
 *set up some selenium tests
 *think more about styles... what can I do to make it attractive and user friendly
@@ -17,6 +19,9 @@ TODO:
 
 DONE: (in descending order of time)
 
+*put in a better chat timer so that people don't timeout at different times DONE at 4:13
+
+*make sure there is a wait time before chat2 DONE at 2:25
 *separate first and second chats DONE at 1:51
 *create a data export function done at 12:14
 in @1030 on june 29

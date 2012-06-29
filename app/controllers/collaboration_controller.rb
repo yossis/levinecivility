@@ -2,14 +2,33 @@ class CollaborationController < ApplicationController
 
   before_filter :find_participant_or_redirect
 
+  def begin_chat
+    @participant.status=("chat#{@participant.which_chat}_ready")
+    @participant.save
+    
+    if !@participant.partner.here_or_further("chat#{@participant.which_chat}_ready")
+      render 'wait' and return
+    end    
+    
+    #if html request
+    pairing = @participant.pairing
+    pairing.chat_start = Time.now
+    pairing.save
+
+    #okay now chat!
+    redirect_to :action => 'chat'
+  end
+
   def chat
-    wait_for_partner('paired')
+    @chat_length_sec = 20
+  
+    @chat_start = @participant.pairing.chat_start
     @messages = @participant.pairing.messages.where("which_chat = ?", @participant.which_chat).order("created_at DESC")
-    #use javascript to end after two minutes
+    
   end
 
   def end_chat
-    @participant.status= "chat#{params[:which_chat]}_complete"
+    @participant.status= "chat#{@participant.which_chat}_complete"
     @participant.save
 
     redirect_to :controller => 'qualtrics', :action => 'to_qualtrics'
@@ -23,8 +42,7 @@ class CollaborationController < ApplicationController
     
     @next_step = {
       :controller => :collaboration, 
-      :action => :chat, 
-      :which_chat => 2
+      :action => :begin_chat
     }
   end
 
@@ -73,7 +91,7 @@ class CollaborationController < ApplicationController
   
   def wait_for_partner(target_status)
     if !@participant.partner.here_or_further(target_status)
-      render 'wait'
+      render 'wait' and return
     end
   end
 

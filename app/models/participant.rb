@@ -5,9 +5,11 @@ class Participant < ActiveRecord::Base
   @@possible_statuses = [
     'exists',
     'paired',
+    'chat1_ready',
     'chat1_complete',
     'quiz_finished',
     'quiz_results_viewed',
+    'chat2_ready',
     'chat2_complete',
     'money_sent',
     'money_results_viewed'

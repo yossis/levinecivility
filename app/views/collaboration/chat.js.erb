@@ -1,4 +1,16 @@
+<% if Time.now - @chat_start <= @chat_length_sec %>
 $("#messages").html(" <%= escape_javascript(render 'messages/messages') %>" );
+<% else %>
+//alert('Your chat time has finished and now you will be redirected back to your survey.');
+window.location = '/collaboration/end_chat';
+<% end %>
+
+
+
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@ class PairingsController < ApplicationController
     if @participant.partner.nil?
       render 'collaboration/wait'
     else
-      redirect_to :controller => 'collaboration', :action => 'chat', :which_chat => 1,
+      redirect_to :controller => 'collaboration', :action => 'begin_chat'
     end
   end
 
