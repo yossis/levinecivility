@@ -4,7 +4,7 @@ class CollaborationController < ApplicationController
 
   def chat
     wait_for_partner('paired')
-    @messages = @participant.pairing.messages.order("created_at DESC")
+    @messages = @participant.pairing.messages.where("which_chat = ?", @participant.which_chat).order("created_at DESC")
     #use javascript to end after two minutes
   end
 

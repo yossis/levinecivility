@@ -2,26 +2,26 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-*make an application configuration file
-*figure out how to detect server in code
-*put on heroku & send to Livia!!
 
-*figure out how to calculate # of correct quiz answers and display that in qualtrics
 *put in a better chat timer so that people don't timeout at different times
-*figure out how to deal with people who leave halfway through
-*put a wait in qualtrics so you don't see quiz results untill your partner has finished
-*create a way for livia to export data from this application
+*deal with people who leave halfway through completing survey
+*calculate # of correct quiz answers, communicate to rails app and display
 *add amazon turk code to goodbye page
 *add wharton stylesheet
 *put validations in the money sending game
-
 *utelise messages#list if I can
-*?? make a webservice that returns the stage of a pairing
 *set up some selenium tests
 *think more about styles... what can I do to make it attractive and user friendly
-
+*figure out how to dry up the Exportable functions in my models
+*have role two complete the survey first
 
 DONE: (in descending order of time)
+
+*separate first and second chats DONE at 1:51
+*create a data export function done at 12:14
+in @1030 on june 29
+*put on heroku & send to Livia!!
+*figure out how to detect server in code & made config parameters & debugged heroku and got it htere 11:30pm
 *clean up the statuses (refactor) @9:30pm (2hr beer break)
 *finished with skeleton!! @2:35pm  (1hr lunch)
 *getting skeleton working start 10am

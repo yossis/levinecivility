@@ -1,6 +1,4 @@
-class Pairing < ActiveRecord::Base
-  has_many :participants
-  has_many :messages, :through => :participants
+module Exportable
 
   def self.text_export
     headerline = ""
@@ -23,14 +21,6 @@ class Pairing < ActiveRecord::Base
     end
     line = "#{line}\n"
     line
-  end
-
-  def participant1
-    participants.find_by_pairing_role(1)
-  end
-  
-  def participant2
-    participants.find_by_pairing_role(2)
   end
 
 end

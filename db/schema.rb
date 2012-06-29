@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120620171522) do
 
   create_table "messages", :force => true do |t|
     t.integer  "participant_id"
-    t.integer  "which_conversation"
+    t.integer  "which_chat"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

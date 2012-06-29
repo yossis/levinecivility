@@ -1,6 +1,8 @@
 HerokuApp::Application.routes.draw do
 
 
+  get "admin/export"
+
   get 'participants/create' => 'participants#create'
   get 'pairings/create' => 'pairings#create'
 
@@ -14,6 +16,9 @@ HerokuApp::Application.routes.draw do
   match 'collaboration/:action' => 'collaboration#:action'
 
   match 'qualtrics/:action' => 'qualtrics#:action'
+
+  match 'admin' => 'admin#export'
+  match 'admin/:action' => 'admin#:action'
 
   root :to => 'qualtrics#start'
 

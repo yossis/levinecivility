@@ -13,6 +13,29 @@ class Participant < ActiveRecord::Base
     'money_results_viewed'
   ]
   
+  def self.text_export
+    headerline = ""
+    new.attributes.each do |key,value|
+      headerline = "#{headerline}#{key}\t"
+    end
+    headerline = "#{headerline}\n"
+    
+    textfile = headerline    
+    all.each do |item|
+      textfile += item.to_csv
+    end
+    textfile
+  end
+    
+  def to_csv
+    line = ""
+    attributes.each do|key,value|
+      line = "#{line}#{value}\t"
+    end
+    line = "#{line}\n"
+    line
+  end
+    
   def self.get_status_by_code(code)
     participant = Participant.find_by_code(code)
     if participant.nil?
@@ -40,6 +63,14 @@ class Participant < ActiveRecord::Base
     test_step = @@possible_statuses.index(test_status)
     my_step = @@possible_statuses.index(status)
     my_step >= test_step
+  end
+
+  def which_chat
+    if here_or_further('chat1_complete')
+      2
+    else
+      1
+    end
   end
   
   def self.find_or_create_by_code(code)
