@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20120620171522) do
     t.string   "code"
     t.integer  "pairing_id"
     t.integer  "pairing_role"
+    t.integer  "quiz_score"
     t.float    "money_transfer"
     t.datetime "joined"
     t.datetime "last_contact"

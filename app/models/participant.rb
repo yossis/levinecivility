@@ -27,6 +27,7 @@ class Participant < ActiveRecord::Base
     'chat1_ready',
     'chat1_complete',
     'quiz_finished',
+    'quiz_score_reported',
     'quiz_results_viewed',
     'chat2_ready',
     'chat2_complete',

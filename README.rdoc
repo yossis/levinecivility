@@ -3,17 +3,20 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 TODO:
 
 *calculate # of correct quiz answers, communicate to rails app and display
-*add final payout amazon turk code to goodbye page
-*add wharton stylesheet & remove anything extremely ugly
-*integrate with existing survey
 
 *deal with people who leave halfway through completing survey
+
+*add final payout amazon turk code to goodbye page
+*add wharton stylesheet & remove anything extremely ugly
+*ask Livia to integrate with existing survey
 
 *utelise messages#list if I can
 *set up some selenium tests
 *think more about styles... what can I do to make it attractive and user friendly
 *figure out how to dry up the Exportable functions in my models
 *have role two complete the survey first
+
+*why does the second signer in-er
 
 
 
