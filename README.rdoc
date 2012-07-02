@@ -7,7 +7,8 @@ TODO:
 *deal with people who leave halfway through completing survey
 
 *add final payout amazon turk code to goodbye page
-*add wharton stylesheet & remove anything extremely ugly
+*fix anything extremely ugly
+*add stylesheets
 *ask Livia to integrate with existing survey
 
 *utelise messages#list if I can

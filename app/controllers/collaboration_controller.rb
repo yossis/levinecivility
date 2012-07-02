@@ -38,8 +38,8 @@ class CollaborationController < ApplicationController
     @participant.status = "quiz_finished"
     @participant.save
     
-    @your_score
-    @their_score
+    @your_score = @participant.quiz_score
+    @their_score = @participant.partner.quiz_score
     
     wait_for_partner("quiz_finished")
     
