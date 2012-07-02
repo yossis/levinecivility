@@ -2,8 +2,11 @@
   <% @messages.each do |message|%>
   <tr>
     <td>
-      <%= "User" + message.participant.id.to_s %><br/>
-      <%= message.created_at %>
+      <%if message.participant.id == @participant.id %>
+      You: 
+      <%else%>
+      Partner: 
+      <%end%>
     </td>  
     <td><%= message.body %></td>  
   </tr>

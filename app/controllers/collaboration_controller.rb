@@ -35,7 +35,7 @@ class CollaborationController < ApplicationController
   end
 
   def quiz_results
-    @participant.status = "quiz_finished"
+    @participant.status = "quiz_score_reported"
     @participant.save
     
     @your_score = @participant.quiz_score

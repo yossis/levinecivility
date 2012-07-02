@@ -1,0 +1,101 @@
+2012-07-02T20:32:10+00:00 app[web.1]:   Parameters: {"_"=>"1341261131008"}
+2012-07-02T20:32:10+00:00 app[web.1]: Rendered collaboration/chat.js.erb (0.0ms)
+2012-07-02T20:32:10+00:00 app[web.1]: cache: [GET /collaboration/chat?_=1341261131008] miss
+2012-07-02T20:32:10+00:00 app[web.1]: Completed 200 OK in 95ms (Views: 0.9ms | ActiveRecord: 58.0ms)
+2012-07-02T20:32:10+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/chat?_=1341261131008 dyno=web.1 queue=0 wait=0ms service=156ms status=200 bytes=147
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: Started GET "/collaboration/chat?_=1341261131231" for 128.91.131.23 at 2012-07-02 20:32:11 +0000
+2012-07-02T20:32:11+00:00 app[web.1]:   Parameters: {"_"=>"1341261131231"}
+2012-07-02T20:32:11+00:00 app[web.1]:   Processing by CollaborationController#chat as JS
+2012-07-02T20:32:11+00:00 app[web.1]: Rendered collaboration/chat.js.erb (0.0ms)
+2012-07-02T20:32:11+00:00 app[web.1]: cache: [GET /collaboration/chat?_=1341261131231] miss
+2012-07-02T20:32:11+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 8.7ms | ActiveRecord: 10.3ms)
+2012-07-02T20:32:11+00:00 app[web.1]:   Processing by CollaborationController#end_chat as HTML
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: Started GET "/collaboration/end_chat" for 128.91.131.23 at 2012-07-02 20:32:11 +0000
+2012-07-02T20:32:11+00:00 app[web.1]: Redirected to http://stark-galaxy-1401.herokuapp.com/qualtrics/to_qualtrics
+2012-07-02T20:32:11+00:00 app[web.1]: Completed 302 Found in 25ms
+2012-07-02T20:32:11+00:00 app[web.1]: cache: [GET /collaboration/end_chat] miss
+2012-07-02T20:32:11+00:00 app[web.1]: Started GET "/collaboration/end_chat" for 128.91.131.23 at 2012-07-02 20:32:11 +0000
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]:   Processing by CollaborationController#end_chat as HTML
+2012-07-02T20:32:11+00:00 app[web.1]: Redirected to http://stark-galaxy-1401.herokuapp.com/qualtrics/to_qualtrics
+2012-07-02T20:32:11+00:00 app[web.1]: Completed 302 Found in 20ms
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: cache: [GET /collaboration/end_chat] miss
+2012-07-02T20:32:11+00:00 app[web.1]:   Processing by QualtricsController#to_qualtrics as HTML
+2012-07-02T20:32:11+00:00 app[web.1]: Started GET "/qualtrics/to_qualtrics" for 128.91.131.23 at 2012-07-02 20:32:11 +0000
+2012-07-02T20:32:11+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/end_chat dyno=web.1 queue=0 wait=0ms service=52ms status=302 bytes=127
+2012-07-02T20:32:11+00:00 app[web.1]: Redirected to http://wharton.qualtrics.com/SE/?SID=SV_3WzzOUymYH3CGb2&participant_code=cvb&stage=2
+2012-07-02T20:32:11+00:00 app[web.1]: cache: [GET /qualtrics/to_qualtrics] miss
+2012-07-02T20:32:11+00:00 app[web.1]: Completed 302 Found in 18ms
+2012-07-02T20:32:11+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/qualtrics/to_qualtrics dyno=web.1 queue=0 wait=0ms service=64ms status=302 bytes=158
+2012-07-02T20:32:11+00:00 app[web.1]: Started GET "/qualtrics/to_qualtrics" for 128.91.131.23 at 2012-07-02 20:32:11 +0000
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]: 
+2012-07-02T20:32:11+00:00 app[web.1]:   Processing by QualtricsController#to_qualtrics as HTML
+2012-07-02T20:32:11+00:00 app[web.1]: Redirected to http://wharton.qualtrics.com/SE/?SID=SV_3WzzOUymYH3CGb2&participant_code=cfh&stage=2
+2012-07-02T20:32:11+00:00 app[web.1]: Completed 302 Found in 23ms
+2012-07-02T20:32:11+00:00 app[web.1]: cache: [GET /qualtrics/to_qualtrics] miss
+2012-07-02T20:31:47+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/chat?_=1341261107219 dyno=web.1 queue=0 wait=0ms service=26ms status=200 bytes=514
+2012-07-02T20:31:53+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/chat?_=1341261113222 dyno=web.1 queue=0 wait=0ms service=54ms status=200 bytes=514
+2012-07-02T20:31:58+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/chat?_=1341261119008 dyno=web.1 queue=0 wait=0ms service=107ms status=200 bytes=514
+2012-07-02T20:32:11+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/end_chat dyno=web.1 queue=0 wait=0ms service=57ms status=302 bytes=127
+2012-07-02T20:32:05+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/chat?_=1341261125227 dyno=web.1 queue=0 wait=0ms service=77ms status=200 bytes=514
+2012-07-02T20:32:11+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/qualtrics/to_qualtrics dyno=web.1 queue=0 wait=0ms service=59ms status=302 bytes=158
+2012-07-02T20:33:32+00:00 app[web.1]: 
+2012-07-02T20:33:32+00:00 app[web.1]: 
+2012-07-02T20:33:32+00:00 app[web.1]: Started GET "/?participant_code=cvb" for 128.91.131.23 at 2012-07-02 20:33:32 +0000
+2012-07-02T20:33:32+00:00 app[web.1]:   Processing by QualtricsController#start as HTML
+2012-07-02T20:33:32+00:00 app[web.1]:   Parameters: {"participant_code"=>"cvb"}
+2012-07-02T20:33:32+00:00 app[web.1]: Redirected to http://stark-galaxy-1401.herokuapp.com/collaboration/quiz_results
+2012-07-02T20:33:32+00:00 app[web.1]: Completed 302 Found in 9ms
+2012-07-02T20:33:32+00:00 app[web.1]: cache: [GET /?participant_code=cvb] miss
+2012-07-02T20:33:32+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/?participant_code=cvb dyno=web.1 queue=0 wait=0ms service=18ms status=302 bytes=131
+2012-07-02T20:33:32+00:00 app[web.1]: 
+2012-07-02T20:33:32+00:00 app[web.1]: 
+2012-07-02T20:33:32+00:00 app[web.1]: Started GET "/collaboration/quiz_results" for 128.91.131.23 at 2012-07-02 20:33:32 +0000
+2012-07-02T20:33:32+00:00 app[web.1]:   Processing by CollaborationController#quiz_results as HTML
+2012-07-02T20:33:32+00:00 app[web.1]: Completed 200 O
+K in 49ms (Views: 34.5ms | ActiveRecord: 9.2ms)
+2012-07-02T20:33:32+00:00 app[web.1]: cache: [GET /collaboration/quiz_results] miss
+2012-07-02T20:33:32+00:00 app[web.1]: Rendered collaboration/wait.html.erb within layouts/application (0.0ms)
+2012-07-02T20:33:32+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/quiz_results dyno=web.1 queue=0 wait=2ms service=54ms status=200 bytes=512
+2012-07-02T20:33:32+00:00 app[web.1]: cache: [GET /assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js] miss
+2012-07-02T20:33:32+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js dyno=web.1 queue=0 wait=0ms service=5ms status=304 bytes=0
+2012-07-02T20:33:35+00:00 app[web.1]: 
+2012-07-02T20:33:35+00:00 app[web.1]: 
+2012-07-02T20:33:35+00:00 app[web.1]: Redirected to http://stark-galaxy-1401.herokuapp.com/collaboration/quiz_results
+2012-07-02T20:33:35+00:00 app[web.1]:   Parameters: {"participant_code"=>"cfh"}
+2012-07-02T20:33:35+00:00 app[web.1]: Completed 302 Found in 19ms
+2012-07-02T20:33:35+00:00 app[web.1]:   Processing by QualtricsController#start as HTML
+2012-07-02T20:33:36+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js dyno=web.1 queue=0 wait=0ms service=4ms status=304 bytes=0
+2012-07-02T20:33:35+00:00 app[web.1]: Started GET "/collaboration/quiz_results" for 128.91.131.23 at 2012-07-02 20:33:35 +0000
+2012-07-02T20:33:35+00:00 app[web.1]: 
+2012-07-02T20:33:35+00:00 app[web.1]:   Processing by CollaborationController#quiz_results as HTML
+2012-07-02T20:33:36+00:00 app[web.1]: cache: [GET /assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js] miss
+2012-07-02T20:33:36+00:00 app[web.1]: Rendered collaboration/quiz_results.html.erb within layouts/application (1.1ms)
+2012-07-02T20:33:36+00:00 app[web.1]: cache: [GET /collaboration/quiz_results] miss
+2012-07-02T20:33:35+00:00 app[web.1]: 
+2012-07-02T20:33:35+00:00 app[web.1]: Started GET "/?participant_code=cfh" for 128.91.131.23 at 2012-07-02 20:33:35 +0000
+2012-07-02T20:33:36+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=18ms status=304 bytes=0
+2012-07-02T20:33:35+00:00 app[web.1]: cache: [GET /?participant_code=cfh] miss
+2012-07-02T20:33:35+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/?participant_code=cfh dyno=web.1 queue=0 wait=0ms service=27ms status=302 bytes=131
+2012-07-02T20:33:36+00:00 app[web.1]: Completed 200 OK in 13ms (Views: 3.1ms | ActiveRecord: 6.7ms)
+2012-07-02T20:33:36+00:00 app[web.1]: cache: [GET /favicon.ico] miss
+2012-07-02T20:33:36+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/collaboration/quiz_results dyno=web.1 queue=0 wait=0ms service=20ms status=200 bytes=1054
+2012-07-02T20:33:37+00:00 app[web.1]: Started GET "/collaboration/quiz_results" for 128.91.131.23 at 2012-07-02 20:33:37 +0000
+2012-07-02T20:33:37+00:00 app[web.1]: 
+2012-07-02T20:33:37+00:00 app[web.1]: 
+2012-07-02T20:33:37+00:00 app[web.1]:   Processing by CollaborationController#quiz_results as HTML
+2012-07-02T20:33:37+00:00 app[web.1]: Rendered collaboration/quiz_results.html.erb within layouts/application (0.5ms)
+2012-07-02T20:33:37+00:00 app[web.1]: Completed 200 OK in 12ms (Views: 1.6ms | ActiveRecord: 6.9ms)
+2012-07-02T20:33:37+00:00 app[web.1]: cache: [GET /collaboration/quiz_results] miss
+2012-07-02T20:33:37+00:00 app[web.1]: cache: [GET /assets/application-acf2adbb0a630311265d2ef94f548e0c.css] fresh
+2012-07-02T20:33:37+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/assets/application-acf2adbb0a630311265d2ef94f548e0c.css dyno=web.1 queue=0 wait=0ms service=11ms status=200 bytes=1361
+2012-07-02T20:33:37+00:00 app[web.1]: cache: [GET /assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js] miss
+2012-07-02T20:33:37+00:00 heroku[router]: GET stark-galaxy-1401.herokuapp.com/assets/application-639ed421b5c0ba1d7ef3fa503bebbb66.js dyno=web.1 queue=0 wait=0ms service=16ms status=200 bytes=100226
