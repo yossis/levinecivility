@@ -1,4 +1,6 @@
-module Exportable
+class Exportable < ActiveRecord::Base
+
+  self.abstract_class = true
 
   def self.text_export
     headerline = ""
@@ -22,5 +24,5 @@ module Exportable
     line = "#{line}\n"
     line
   end
-
+  
 end

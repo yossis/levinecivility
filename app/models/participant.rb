@@ -1,4 +1,4 @@
-class Participant < ActiveRecord::Base
+class Participant < Exportable
   belongs_to :pairing
   has_many :messages
   
@@ -34,29 +34,6 @@ class Participant < ActiveRecord::Base
     'money_sent',
     'money_results_viewed'
   ]
-  
-  def self.text_export
-    headerline = ""
-    new.attributes.each do |key,value|
-      headerline = "#{headerline}#{key}\t"
-    end
-    headerline = "#{headerline}\n"
-    
-    textfile = headerline    
-    all.each do |item|
-      textfile += item.to_csv
-    end
-    textfile
-  end
-    
-  def to_csv
-    line = ""
-    attributes.each do|key,value|
-      line = "#{line}#{value}\t"
-    end
-    line = "#{line}\n"
-    line
-  end
     
   def self.get_status_by_code(code)
     participant = Participant.find_by_code(code)
