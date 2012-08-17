@@ -14,7 +14,7 @@ class QualtricsController < ApplicationController
       case status
       when 'noexist'
         redirect_to :controller => 'participants', :action => 'create', :participant_code => params[:participant_code]
-      when 'quiz_score_reported'
+      when 'chat1_complete', 'quiz_score_reported'
         redirect_to :controller => 'collaboration', :action => 'quiz_results'
       when 'chat2_complete'
         redirect_to :controller => 'collaboration', :action => 'money_decide'

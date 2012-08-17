@@ -2,9 +2,10 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-
 *deal with people who leave halfway through survey
+  **5min timeout after partner joined... pay something but less
 *add final payout amazon turk code to goodbye page
+  **livia happy with anything as long as its not easily cheatable but she can figure it out
 *fix anything extremely ugly
 *improve error checking
 *figure out why i get that prompt at beginning on second chat
@@ -16,6 +17,7 @@ OPT
 
 
 DONE: (in descending order of time)
+*bug ... on localhost... leaving me on a screen with message "qualtrics#start chat1_complete"
 *bug... issue with waiting for partner
 *figure out how to dry up the Exportable functions in my models
 *calculate # of correct quiz answers, communicate to rails app and display
