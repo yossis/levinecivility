@@ -2,27 +2,23 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-*calculate # of correct quiz answers, communicate to rails app and display
 
-*deal with people who leave halfway through completing survey
-
+*deal with people who leave halfway through survey
 *add final payout amazon turk code to goodbye page
 *fix anything extremely ugly
-*add stylesheets
-*ask Livia to integrate with existing survey
+*improve error checking
+*figure out why i get that prompt at beginning on second chat
 
-*utelise messages#list if I can
+OPT
 *set up some selenium tests
-*think more about styles... what can I do to make it attractive and user friendly
-*figure out how to dry up the Exportable functions in my models
-*have role two complete the survey first
-
-*why does the second signer in-er
 
 
 
 
 DONE: (in descending order of time)
+*bug... issue with waiting for partner
+*figure out how to dry up the Exportable functions in my models
+*calculate # of correct quiz answers, communicate to rails app and display
 *put validations in the money sending game DONE at 6:09
 *make external constants file
 *put in a better chat timer so that people don't timeout at different times DONE at 4:13
@@ -31,7 +27,7 @@ DONE: (in descending order of time)
 *create a data export function done at 12:14
 in @1030 on june 29
 *put on heroku & send to Livia!!
-*figure out how to detect server in code & made config parameters & debugged heroku and got it htere 11:30pm
+*figure out how to detect server in code & made config parameters & debugged heroku and got it there 11:30pm
 *clean up the statuses (refactor) @9:30pm (2hr beer break)
 *finished with skeleton!! @2:35pm  (1hr lunch)
 *getting skeleton working start 10am

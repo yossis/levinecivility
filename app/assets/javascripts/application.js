@@ -16,6 +16,7 @@
 
 $(function() {
 
+  //alert("application.js");
 
 
   //useful function to get query parameter
@@ -23,6 +24,7 @@ $(function() {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
   }
+
 
 
   //refresh chat messages
@@ -40,14 +42,13 @@ $(function() {
   
   //redirect to qualtrics after a fixed period of chatting
   if($('#messages').length){
-    var chat_url_patt = new RegExp('/collaboration/chat/(1|2)');
-    var matches = chat_url_patt.exec(window.location.pathname);
-    var which_chat = matches[1];
     setTimeout(function(){ 
       alert('Your chat time has finished and now you will be redirected back to your survey.');
-      window.location = '/collaboration/end_chat/' + which_chat;
+      window.location = '/collaboration/end_chat'; //stupid error right here!!
     },20000);
   }
+
+
 
   //refresh the waiting page
   if ($('#wait').length) {
@@ -55,6 +56,8 @@ $(function() {
       location.reload(true);
     },5000);
   }
+
+
 
 });
 
