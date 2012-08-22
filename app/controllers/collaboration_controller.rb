@@ -7,7 +7,7 @@ class CollaborationController < ApplicationController
     @participant.save
     
     if !@participant.partner.here_or_further("chat#{@participant.which_chat}_ready")
-      render 'wait' and return
+      wait_for_partner and return
     end    
     
     #if html request
@@ -41,7 +41,9 @@ class CollaborationController < ApplicationController
     @your_score = @participant.quiz_score
     @their_score = @participant.partner.quiz_score
     
-    wait_for_partner("quiz_finished")
+    if !@participant.partner.here_or_further("quiz_finished")
+      wait_for_partner and return
+    end
     
     @next_step = {
       :controller => :collaboration, 
@@ -76,7 +78,9 @@ class CollaborationController < ApplicationController
   end
 
   def money_results
-    wait_for_partner('money_sent')
+    if !@participant.partner.here_or_further("money_sent")
+      wait_for_partner and return
+    end
     
     @role = @participant.pairing_role
     pairing = @participant.pairing
@@ -95,11 +99,23 @@ class CollaborationController < ApplicationController
     redirect_to :controller => 'qualtrics', :action => 'to_qualtrics'
   end
 
+  def abandoned
+    render :text => "abandoned"
+  end
+
+  def timed_out
+    render :text => "timed_out"
+  end
+
+
   private
   
-  def wait_for_partner(target_status)
-    if !@participant.partner.here_or_further(target_status)
-      render 'wait' and return
+  def wait_for_partner
+    if @participant.partner.idle_time > TIMEOUT_CONSTANT   #in seconds
+      @participant.partner.time_out 
+      redirect_to :action => 'abandoned' 
+    else
+      render 'wait'
     end
   end
 

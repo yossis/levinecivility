@@ -6,8 +6,15 @@ class PairingsController < ApplicationController
     if @participant.partner.nil?
       @participant.establish_partner
     end
+    
     if @participant.partner.nil?
-      render 'collaboration/wait'
+      if @participant.idle_time > WAITFORPARTNER_TIMEOUT_CONSTANT
+        @participant.status = 'no_partners'
+        @participant.save
+        render :text => "No partners available"
+      else
+        render 'collaboration/wait'
+      end
     else
       redirect_to :controller => 'collaboration', :action => 'begin_chat'
     end

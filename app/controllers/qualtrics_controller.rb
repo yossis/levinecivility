@@ -22,10 +22,16 @@ class QualtricsController < ApplicationController
         redirect_to :controller => 'collaboration', :action => 'money_results'
       when 'money_results_viewed'
         good_bye
+      when 'timed_out'
+        timed_out
+      when 'abandoned'
+        abandoned
+      when 'no_partners'
+        no_partners
       else
         #TODO hmmm how should I handle these other cases???
         #for now I only put cases that would come from qualtrics
-        render :text => "qualtrics#start #{status}"
+        render :text => "ERROR - status #{status} not recognized"
       end
     end
   end
@@ -55,6 +61,10 @@ class QualtricsController < ApplicationController
   
   def good_bye
     render :text => 'Good Bye'
+  end
+
+  def timed_out
+    render :text => 'Timed Out'
   end
 
   #webservices

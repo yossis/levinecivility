@@ -4,11 +4,16 @@ TODO:
 
 *deal with people who leave halfway through survey
   **5min timeout after partner joined... pay something but less
+  **when checking in while waiting, check the lastupdate time of partner, if beyond a certain point, mark them as timed_out and you as parterner_timed_out
+*bug allowing the sending of negetive money
+
 *add final payout amazon turk code to goodbye page
   **livia happy with anything as long as its not easily cheatable but she can figure it out
 *fix anything extremely ugly
 *improve error checking
 *figure out why i get that prompt at beginning on second chat
+
+*livia mentioned the desire to save information about participant for later access
 
 OPT
 *set up some selenium tests
@@ -17,6 +22,7 @@ OPT
 
 
 DONE: (in descending order of time)
+*bug having to do with score reporting
 *bug ... on localhost... leaving me on a screen with message "qualtrics#start chat1_complete"
 *bug... issue with waiting for partner
 *figure out how to dry up the Exportable functions in my models

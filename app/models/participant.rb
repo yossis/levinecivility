@@ -32,7 +32,10 @@ class Participant < Exportable
     'chat2_ready',
     'chat2_complete',
     'money_sent',
-    'money_results_viewed'
+    'money_results_viewed',
+    'abandoned',
+    'timed_out',
+    'no_partners'
   ]
     
   def self.get_status_by_code(code)
@@ -115,6 +118,23 @@ class Participant < Exportable
       original_money - money_transfer + partner.money_transfer
     elsif pairing_role ==2
       partner.money_transfer*3 - money_transfer
+    end
+  end
+  
+  def idle_time
+    DateTime.now.to_i - updated_at.to_i
+  end
+  
+  def time_out
+    #mark as timed_out
+    #mark partner as abandoned
+    self.status = "timed_out"
+    self.save
+
+    p = self.partner
+    if p
+      p.status = "abandoned"
+      p.save
     end
   end
   
