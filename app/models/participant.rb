@@ -162,7 +162,7 @@ class Participant < Exportable
   def potential_partners
     #get list of potential partners ordered by preference (join time or last checkin)
     puts "Participant #{id} is looking for partners"
-    self.class.order("joined ASC").find_all{|item| (!item.is_paired) && (item.id!=self.id)}
+    self.class.order("joined ASC").find_all{|item| (!item.is_paired) && (item.id!=self.id) && (item.status=='exists')}
   end
 
   
