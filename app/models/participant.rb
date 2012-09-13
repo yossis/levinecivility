@@ -125,6 +125,10 @@ class Participant < Exportable
     DateTime.now.to_i - updated_at.to_i
   end
   
+  def time_since_creation
+    DateTime.now.to_i - created_at.to_i
+  end
+  
   def time_out
     #mark as timed_out
     #mark partner as abandoned
@@ -159,10 +163,14 @@ class Participant < Exportable
     end
   end
   
+  
+  public
+  
   def potential_partners
     #get list of potential partners ordered by preference (join time or last checkin)
     puts "Participant #{id} is looking for partners"
-    self.class.order("joined ASC").find_all{|item| (!item.is_paired) && (item.id!=self.id) && (item.status=='exists')}
+    self.class.where("created_at > ?", DateTime.now - WAITFORPARTNER_TIMEOUT_CONSTANT.seconds).order("joined ASC").find_all{|item| 
+      (!item.is_paired) && (item.id!=self.id) && (item.status=='exists') }
   end
 
   

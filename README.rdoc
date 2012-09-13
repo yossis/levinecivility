@@ -3,7 +3,6 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 TODO:
 
 *bug allowing the sending of negetive money
-*figure out why livia was getting stuck
 *type in a better explanation of the game
 *make a few more questions
 *generate a user code in the amazonturkfaux page
@@ -29,6 +28,7 @@ OPT
 
 
 DONE: (in descending order of time)
+*figure out why livia was getting stuck
 *fix up export
 *deal with people who leave halfway through survey
 *bug having to do with score reporting
