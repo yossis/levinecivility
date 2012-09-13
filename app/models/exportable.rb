@@ -4,25 +4,13 @@ class Exportable < ActiveRecord::Base
 
   def self.text_export
     headerline = ""
-    new.attributes.each do |key,value|
-      headerline = "#{headerline}#{key}\t"
-    end
-    headerline = "#{headerline}\n"
+    headerline = new.attributes.keys.join(",") + "\n"
     
     textfile = headerline    
     all.each do |item|
-      textfile += item.to_csv
+      textfile += item.attributes.values.join(",") + "\n"
     end
     textfile
   end
     
-  def to_csv
-    line = ""
-    attributes.each do|key,value|
-      line = "#{line}#{value}\t"
-    end
-    line = "#{line}\n"
-    line
-  end
-  
 end
