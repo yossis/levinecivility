@@ -15,9 +15,9 @@ class Participant < Exportable
     if money_transfer.nil?
       true
     elsif pairing_role == 1
-      money_transfer<=STARTING_MONEY_CONSTANT       
+      money_transfer<=STARTING_MONEY_CONSTANT && money_transfer > 0      
     elsif pairing_role == 2
-      money_transfer<=(partner.money_transfer*3)
+      money_transfer<=(partner.money_transfer*3) && money_transfer > 0
     end
   end  
     
