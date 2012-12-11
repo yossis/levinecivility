@@ -59,10 +59,20 @@ class QualtricsController < ApplicationController
     render :amazon_turk_faux
   end
   
-  def good_bye
-    render :text => 'Good Bye'
+  def encode_payout(x)
+    a, b, c = 7, 19, 31
+    (x+b+rand(b)*c)*a
   end
+  private :encode_payout
 
+  def good_bye
+    @participant = Participant.find_by_code(params[:participant_code])
+    @payout_code = 'LC' + encode_payout(@participant.final_payout.round).to_s
+#    @payout_code = 'LC' + encode_payout(8).to_s
+    puts @participant.inspect
+    render :text => "You are finished.<br/>  Amazon Turk payout code:#{@payout_code}"
+  end
+  
   def timed_out
     render :text => 'Timed Out'
   end
@@ -70,7 +80,7 @@ class QualtricsController < ApplicationController
   #webservices
   def report_score
     if params[:participant_code] && params[:score]
-      @participant = Participant.find_by_code(params[:participant_code]);
+      @participant = Participant.find_by_code(params[:participant_code])
       @participant.quiz_score = params[:score]
       @participant.status = 'quiz_score_reported'
       @participant.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620171522) do
+ActiveRecord::Schema.define(:version => 20120620144307) do
 
   create_table "messages", :force => true do |t|
     t.integer  "participant_id"
@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(:version => 20120620171522) do
     t.datetime "joined"
     t.datetime "last_contact"
     t.string   "status_data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "samples", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "other_id"
-    t.datetime "finish"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

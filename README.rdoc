@@ -2,32 +2,33 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
+*change the pairing system...pair RA's with external users
+*allow user to enter 0 when playing game
+
+*is there a way to make this app work with multiple surveys???
+** OR JUST CHANGE the survey number
+
 *fix time... i think heroku is not using production values
 *figure out why i get that prompt at beginning on second chat
-*generate a user code in the amazonturkfaux page
 *make chat text entry box bigger
 *make a delete all data option for levine civility
 
 *type in a better explanation of the game
 *make a few more questions
 
-*add final payout amazon turk code to goodbye page and the timeout pages
-  **livia happy with anything as long as its not easily cheatable but she can figure it out
-
-
 *fix anything extremely ugly
 *improve error checking
 
-
 *livia mentioned the desire to save information about participant for later access
 
-OPT
-*set up some selenium tests
 
 
 
 
 DONE: (in descending order of time)
+
+*generate a user code in the amazonturkfaux page
+end of Dec10 2012
 end of Sept 13 2012
 *bug allowing the sending of negetive money
 *figure out why livia was getting stuck
