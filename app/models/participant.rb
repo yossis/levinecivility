@@ -169,8 +169,21 @@ class Participant < Exportable
   def potential_partners
     #get list of potential partners ordered by preference (join time or last checkin)
     puts "Participant #{id} is looking for partners"
-    self.class.where("created_at > ?", DateTime.now - WAITFORPARTNER_TIMEOUT_CONSTANT.seconds).order("joined ASC").find_all{|item| 
+
+    #assures RA's get paired with External Users and vice versa
+    my_code_prefix = code[0..0]
+    if my_code_prefix == 'E'
+      partner_code_prefix = 'R'
+    elsif my_code_prefix == 'R'
+      partner_code_prefix = 'E'
+    else
+      puts "ERROR - invalid participant code, code must start with E or R"
+      return false
+    end
+
+    self.class.where("created_at > ?", DateTime.now - WAITFORPARTNER_TIMEOUT_CONSTANT.seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
       (!item.is_paired) && (item.id!=self.id) && (item.status=='exists') }
+
   end
 
   

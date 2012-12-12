@@ -2,24 +2,18 @@ This application is meant to work with a qualtrics survey study done by Livia Le
 
 TODO:
 
-*change the pairing system...pair RA's with external users
-*allow user to enter 0 when playing game
-
 *is there a way to make this app work with multiple surveys???
 ** OR JUST CHANGE the survey number
 
-*fix time... i think heroku is not using production values
+*allow user to enter 0 when playing game
+
+*fix chat time... i think heroku is not using production values
 *figure out why i get that prompt at beginning on second chat
 *make chat text entry box bigger
 *make a delete all data option for levine civility
 
-*type in a better explanation of the game
-*make a few more questions
 
-*fix anything extremely ugly
-*improve error checking
 
-*livia mentioned the desire to save information about participant for later access
 
 
 
@@ -27,6 +21,8 @@ TODO:
 
 DONE: (in descending order of time)
 
+*change the pairing system...pair RA's with external users
+end of Dec11 2012
 *generate a user code in the amazonturkfaux page
 end of Dec10 2012
 end of Sept 13 2012
