@@ -4,8 +4,12 @@ class ParticipantsController < ApplicationController
 
   def create
     participant = Participant.find_or_create_by_code(params[:participant_code])
-    session[:participant_id] = participant.id
-    redirect_to :controller => 'pairings', :action => 'create'
+    if participant
+      session[:participant_id] = participant.id
+      redirect_to :controller => 'pairings', :action => 'create'
+    else
+      render :text => "Participant creation failed (possibly bad user code (#{params[:participant_code]}))"
+    end
   end
 
 

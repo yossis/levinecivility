@@ -76,6 +76,11 @@ class Participant < Exportable
   end
   
   def self.find_or_create_by_code(code)
+    if code[0..0] != 'R' && code[0..0] != 'E'
+      puts "ERROR - Invalid Participant Code"
+      return false
+    end
+    
     participant = Participant.find_by_code(code)
     if participant.nil?
       participant = Participant.create(:code => code, :joined => DateTime.now)

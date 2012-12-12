@@ -16,9 +16,6 @@ TODO:
 
 
 
-
-
-
 DONE: (in descending order of time)
 
 *change the pairing system...pair RA's with external users
