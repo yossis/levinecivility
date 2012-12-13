@@ -5,12 +5,15 @@ class QualtricsController < ApplicationController
   before_filter :find_participant_or_redirect, :except =>[:start, :no_participant, :participant_status, :report_score]
 
   def start
-    code = params[:participant_code]
-    if code.nil?
-      puts "Cant start without participant code"
+    participant_code = params[:participant_code]
+    survey_code = params[:survey_code]
+    if participant_code.nil? || survey_code.nil?
+      puts "Cant start without participant code and survey code"
       no_participant
     else
-      status = Participant.get_status_by_code(code)
+      status = Participant.get_status_by_code(participant_code)
+      session[:participant_code] = params[:participant_code]  ##this is also set in participants#create
+      session[:survey_code] = params[:survey_code]
       case status
       when 'noexist'
         redirect_to :controller => 'participants', :action => 'create', :participant_code => params[:participant_code]
@@ -37,7 +40,7 @@ class QualtricsController < ApplicationController
   end
 
   def to_qualtrics
-    sid = QUALTRICS_SID_CONSTANT
+    sid = session[:survey_code]
     case @participant.status
     when 'chat1_complete'
       stage = 2
@@ -55,8 +58,14 @@ class QualtricsController < ApplicationController
   end
 
   def no_participant
-    @qualtrics_link = "http://wharton.qualtrics.com/SE/?SID=" + QUALTRICS_SID_CONSTANT
-    render :amazon_turk_faux
+    @qualtrics_surveys = []
+    @qualtrics_surveys.push({:code =>'SV_8GEE97brucNde6w', :description => 'CivilityPrototype - Development (RUNS LOCALLY)' })
+    @qualtrics_surveys.push({:code =>'SV_1XnuT1xvFYiib8p', :description => 'CivilityPrototype - Development2 - redirect testing (RUNS LOCALLY)' })
+    @qualtrics_surveys.push({:code =>'SV_3WzzOUymYH3CGb2', :description => 'CivilityPrototype - Production (Selah testing)' })
+    @qualtrics_surveys.push({:code =>'SV_080tIOwpxrlBam1', :description => 'CivilityPrototype - Production (Livia)' })
+#    @qualtircs_surveys.push({:code =>'', :description => '' })
+
+    render :need_more_info
   end
   
   def encode_payout(x)

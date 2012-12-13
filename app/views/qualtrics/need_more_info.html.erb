@@ -1,0 +1,19 @@
+<h1>NEED MORE INFO</h1>
+
+<p>To use this app you must start with an amazon turk HIT or a qualtrics survey that 
+then redirects to this app with necessary infomation.  Specifically you need 
+the participant_code and the survey_code, both passed as query string parameters.</p>
+
+<p>Here are links to some valid surveys:</p>
+<%@qualtrics_surveys.each do |survey| %>
+<a href="http://wharton.qualtrics.com/SE/?SID=<%=survey[:code]%>" target="_blank"><%=survey[:description]%></a><br/>
+<%end%>
+
+
+
+
+
+
+
+
+
