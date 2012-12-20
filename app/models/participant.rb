@@ -149,16 +149,21 @@ class Participant < Exportable
   
   private
 
+  def RA?
+    code[0..0] == 'R'
+  end
+  public :RA?
+
   def pair_with(partner)
   
     #check that partner and self aren't paired
     if self.pairing.nil? && partner.pairing.nil?
       new_pairing_id = Pairing.create(:formed => DateTime.now).id  
       self.pairing_id = new_pairing_id
-      self.pairing_role = 1
+      self.pairing_role = self.RA? ? 2 : 1
       self.save
       partner.pairing_id = new_pairing_id
-      partner.pairing_role = 2
+      partner.pairing_role = partner.RA? ? 2 : 1  ##making assumption that both roles will be filled, no check :(
       partner.save
       true
     else
