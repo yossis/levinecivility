@@ -39,16 +39,6 @@ $(function() {
 	  },2000);
   }
 
-  
-  //redirect to qualtrics after a fixed period of chatting
-  if($('#messages').length){
-    setTimeout(function(){ 
-      alert('Your chat time has finished and now you will be redirected back to your survey.');
-      window.location = '/collaboration/end_chat'; //stupid error right here!!
-    },20000);
-  }
-
-
 
   //refresh the waiting page
   if ($('#wait').length) {
