@@ -17,10 +17,16 @@ class QualtricsController < ApplicationController
       case status
       when 'noexist'
         redirect_to :controller => 'participants', :action => 'create', :participant_code => params[:participant_code]
+
+#### BYPASSING QUIZ and second chat
+#      when 'chat1_complete', 'quiz_score_reported'
+#        redirect_to :controller => 'collaboration', :action => 'quiz_results'
+#      when 'chat2_complete'
+#        redirect_to :controller => 'collaboration', :action => 'money_decide'
       when 'chat1_complete', 'quiz_score_reported'
-        redirect_to :controller => 'collaboration', :action => 'quiz_results'
-      when 'chat2_complete'
-        redirect_to :controller => 'collaboration', :action => 'money_decide'
+         redirect_to :controller => 'collaboration', :action => 'money_decide'
+
+
       when 'money_sent'
         redirect_to :controller => 'collaboration', :action => 'money_results'
       when 'money_results_viewed'
@@ -42,10 +48,15 @@ class QualtricsController < ApplicationController
   def to_qualtrics
     sid = session[:survey_code]
     case @participant.status
+
+#### BYPASSING QUIZ and second chat
+#    when 'chat1_complete'
+#      stage = 2
+#    when 'chat2_complete'
+#      stage = 3
     when 'chat1_complete'
-      stage = 2
-    when 'chat2_complete'
       stage = 3
+
     when 'money_sent'
       stage = 4
     when 'money_results_viewed'
