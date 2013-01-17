@@ -191,14 +191,18 @@ class Participant < Exportable
       return false
     end
 
-    self.class.where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
+    self.class.where("created_at > ?", DateTime.now - WAITFORPARTNER_TIMEOUT_CONSTANT.seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
       (!item.is_paired) && (item.id!=self.id) && (item.status=='exists') && (item.seconds_since_last_contact < 15) }
 
   end
 
   #private
   def seconds_since_last_contact
-    (last_contact - DateTime.now) * -1
+    if last_contact.nil?
+      9999999
+    else
+      (last_contact - DateTime.now) * -1    
+    end
   end
 
   
