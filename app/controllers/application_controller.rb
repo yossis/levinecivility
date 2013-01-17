@@ -24,11 +24,19 @@ class ApplicationController < ActionController::Base
         render :text => message
       else
         @participant = participant
+        record_last_contact
       end
     else
       redirect_to :controller => :qualtrics, :action => :no_participant
     end
 
   end
+  
+  def record_last_contact
+    @participant.last_contact = DateTime.now
+    @participant.save
+    
+  end
+  
 end
 
