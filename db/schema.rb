@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620144307) do
+ActiveRecord::Schema.define(:version => 20130208153242) do
+
+  create_table "custom_configs", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "custom_configs", ["name"], :name => "index_custom_configs_on_name", :unique => true
 
   create_table "messages", :force => true do |t|
     t.integer  "participant_id"
