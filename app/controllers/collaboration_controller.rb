@@ -20,7 +20,7 @@ class CollaborationController < ApplicationController
   end
 
   def chat
-    @chat_length_sec = CHAT_LENGTH_CONSTANT
+    @chat_length_sec = CustomConfig.hash[:chat_length_constant]
   
     @chat_start = @participant.pairing.chat_start
     @messages = @participant.pairing.messages.where("which_chat = ?", @participant.which_chat).order("created_at DESC")
@@ -53,7 +53,7 @@ class CollaborationController < ApplicationController
 
   def money_decide
     #decide how much money to send, or wait for partner
-    @starting_money = STARTING_MONEY_CONSTANT
+    @starting_money = CustomConfig.hash[:starting_money_constant]
     @is_role1 = (@participant.pairing_role == 1)
     @is_role2 = (@participant.pairing_role == 2)
     if @participant.pairing_role == 2 
@@ -111,7 +111,7 @@ class CollaborationController < ApplicationController
   private
   
   def wait_for_partner
-    if @participant.partner.idle_time > TIMEOUT_CONSTANT   #in seconds
+    if @participant.partner.idle_time > CustomConfig.hash[:timeout_constant]   #in seconds
       @participant.partner.time_out 
       redirect_to :action => 'abandoned' 
     else

@@ -8,7 +8,7 @@ class PairingsController < ApplicationController
     end
     
     if @participant.partner.nil?
-      if @participant.idle_time > WAITFORPARTNER_TIMEOUT_CONSTANT
+      if @participant.idle_time > CustomConfig.hash[:waitforpartner_timeout_constant]
         @participant.status = 'no_partners'
         @participant.save
         render :text => "No partners available"
@@ -21,3 +21,6 @@ class PairingsController < ApplicationController
   end
 
 end
+
+
+

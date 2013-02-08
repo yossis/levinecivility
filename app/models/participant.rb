@@ -15,7 +15,7 @@ class Participant < Exportable
     if money_transfer.nil?
       true
     elsif pairing_role == 1
-      money_transfer<=STARTING_MONEY_CONSTANT && money_transfer > 0      
+      money_transfer<=CustomConfig.hash[:starting_money_constant] && money_transfer > 0      
     elsif pairing_role == 2
       money_transfer<=(partner.money_transfer*3) && money_transfer > 0
     end
@@ -118,7 +118,7 @@ class Participant < Exportable
     if money_transfer.nil? || partner.money_transfer.nil?
       return nil
     end
-    original_money = STARTING_MONEY_CONSTANT
+    original_money = CustomConfig.hash[:starting_money_constant]
     if pairing_role == 1
       original_money - money_transfer + partner.money_transfer
     elsif pairing_role ==2
@@ -191,7 +191,7 @@ class Participant < Exportable
       return false
     end
 
-    self.class.where("created_at > ?", DateTime.now - WAITFORPARTNER_TIMEOUT_CONSTANT.seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
+    self.class.where("created_at > ?", DateTime.now - CustomConfig.hash[:waitforpartner_timeout_constant].seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
       (!item.is_paired) && (item.id!=self.id) && (item.status=='exists') && (item.seconds_since_last_contact < 15) }
 
   end

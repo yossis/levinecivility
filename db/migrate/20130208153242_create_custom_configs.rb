@@ -1,4 +1,5 @@
 class CreateCustomConfigs < ActiveRecord::Migration
+
   def up
     create_table :custom_configs do |t|
       t.string :name
@@ -20,13 +21,11 @@ class CreateCustomConfigs < ActiveRecord::Migration
     end
   end
   
-  
   def down
     remove_index :custom_configs, :name => :index_custom_configs_on_name
     drop_table :custom_configs
   end
-  
-  
+    
 end
 
 
