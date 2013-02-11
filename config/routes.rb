@@ -1,7 +1,9 @@
 HerokuApp::Application.routes.draw do
 
 
+
   get "admin/export"
+  post "custom_configs/:update" => 'custom_configs#update'
 
   get 'participants/create' => 'participants#create'
   get 'pairings/create' => 'pairings#create'

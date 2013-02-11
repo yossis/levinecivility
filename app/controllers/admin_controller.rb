@@ -1,6 +1,8 @@
 class AdminController < ApplicationController
 
   def export
+    @confighash = CustomConfig.hash
+    render 'admin'
   end
 
   def export_participants
