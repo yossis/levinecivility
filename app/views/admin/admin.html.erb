@@ -5,6 +5,9 @@
 <%=link_to "Export Pairings", :controller => 'admin', :action => 'export_pairings'%><br/>
 <h2>Config Params</h2>
 
+<% if flash[:update_conf] %>
+  <p><i><%= flash[:update_conf] %></i></p>          
+<% end %>
 
 <%= form_tag("/custom_configs/update", :method => "post") do %>
 
