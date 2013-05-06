@@ -48,13 +48,13 @@ class Participant < Exportable
   end
 
   def status
-    if pairing.nil?
-      'exists'
-    elsif status_data.nil?  
-      'paired'
-    else
+    # if pairing.nil?
+    #   'exists'
+    # elsif status_data.nil?  
+    #   'paired'
+    # else
       @@possible_statuses[status_data.to_i]
-    end
+    # end
   end
   
   def status=(new_status)
@@ -191,8 +191,8 @@ class Participant < Exportable
       return false
     end
 
-    self.class.where("created_at > ?", DateTime.now - CustomConfig.hash[:waitforpartner_timeout_constant].seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
-      (!item.is_paired) && (item.id!=self.id) && (item.status=='exists') && (item.seconds_since_last_contact < 15) }
+    self.class.where("last_contact > ?", DateTime.now - CustomConfig.hash[:waitforpartner_timeout_constant].seconds).where("CODE LIKE ?", partner_code_prefix + '%').order("joined ASC").find_all{|item| 
+      (!item.is_paired) && (item.id!=self.id) && (item.status=='exists' || item.status=='no_partners') && (item.seconds_since_last_contact < 15) }
 
   end
 

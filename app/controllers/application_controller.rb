@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protected
   
   def find_participant_or_redirect
-
     if params[:participant_code]
       participant = Participant.find_by_code(params[:participant_code])
       if participant.nil?

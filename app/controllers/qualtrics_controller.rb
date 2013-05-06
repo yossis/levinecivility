@@ -23,7 +23,7 @@ class QualtricsController < ApplicationController
 #        redirect_to :controller => 'collaboration', :action => 'quiz_results'
 #      when 'chat2_complete'
 #        redirect_to :controller => 'collaboration', :action => 'money_decide'
-      when 'chat1_complete', 'quiz_score_reported'
+      when 'chat1_complete', 'quiz_score_reported'  , 'chat2_complete'
          redirect_to :controller => 'collaboration', :action => 'money_decide'
 
 
@@ -91,6 +91,18 @@ class QualtricsController < ApplicationController
 #    @payout_code = 'LC' + encode_payout(8).to_s
     puts @participant.inspect
     render :text => "You are finished.<br/>  Amazon Turk payout code:#{@payout_code}"
+  end
+
+  def no_partners
+    if session[:participant_code]
+      @participant = Participant.find_by_code(session[:participant_code])
+    else
+      @participant = Participant.find_by_code(params[:participant_code])
+    end
+    session[:participant_id] = @participant.id
+
+    redirect_to :controller => 'pairings', :action => 'create'
+    
   end
   
   def timed_out

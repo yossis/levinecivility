@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20130208153242) do
   create_table "custom_configs", :force => true do |t|
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "custom_configs", ["name"], :name => "index_custom_configs_on_name", :unique => true
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(:version => 20130208153242) do
     t.integer  "participant_id"
     t.integer  "which_chat"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "pairings", :force => true do |t|
     t.datetime "formed"
     t.datetime "chat_start"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "participants", :force => true do |t|
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20130208153242) do
     t.datetime "joined"
     t.datetime "last_contact"
     t.string   "status_data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
