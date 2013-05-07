@@ -76,7 +76,8 @@ class Participant < Exportable
   end
   
   def self.find_or_create_by_code(code)
-    if code[0..0] != 'R' && code[0..0] != 'E'
+
+    if code[0..0].downcase != 'r' && code[0..0].downcase != 'e'
       puts "ERROR - Invalid Participant Code"
       return false
     end
@@ -147,12 +148,10 @@ class Participant < Exportable
     end
   end
   
-  private
-
   def RA?
-    code[0..0] == 'R'
+    code[0..0].downcase == 'r'
   end
-  public :RA?
+  
 
   def pair_with(partner)
   
@@ -172,20 +171,17 @@ class Participant < Exportable
       false
     end
   end
-  
-  
-  public
-  
+
   def potential_partners
     #get list of potential partners ordered by preference (join time or last checkin)
     puts "Participant #{id} is looking for partners"
 
     #assures RA's get paired with External Users and vice versa
-    my_code_prefix = code[0..0]
-    if my_code_prefix == 'E'
-      partner_code_prefix = 'R'
-    elsif my_code_prefix == 'R'
-      partner_code_prefix = 'E'
+    my_code_prefix = code[0..0].downcase
+    if my_code_prefix == 'e'
+      partner_code_prefix = 'r'
+    elsif my_code_prefix == 'r'
+      partner_code_prefix = 'e'
     else
       puts "ERROR - invalid participant code, code must start with E or R"
       return false
@@ -204,6 +200,8 @@ class Participant < Exportable
       (last_contact - DateTime.now) * -1    
     end
   end
+  
+    
 
   
 end
