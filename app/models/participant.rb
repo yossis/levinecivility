@@ -77,7 +77,7 @@ class Participant < Exportable
   
   def self.find_or_create_by_code(code)
 
-    if code[0..0].downcase != 'r' && code[0..0].downcase != 'e'
+    if code[0..0].capitalize != 'R' && code[0..0].capitalize != 'E'
       puts "ERROR - Invalid Participant Code"
       return false
     end
@@ -149,7 +149,7 @@ class Participant < Exportable
   end
   
   def RA?
-    code[0..0].downcase == 'r'
+    code[0..0] == 'R'
   end
   
 
@@ -177,10 +177,10 @@ class Participant < Exportable
     puts "Participant #{id} is looking for partners"
 
     #assures RA's get paired with External Users and vice versa
-    my_code_prefix = code[0..0].downcase
-    if my_code_prefix == 'e'
-      partner_code_prefix = 'r'
-    elsif my_code_prefix == 'r'
+    my_code_prefix = code[0..0].capitalize
+    if my_code_prefix == 'E'
+      partner_code_prefix = 'R'
+    elsif my_code_prefix == 'R'
       partner_code_prefix = 'e'
     else
       puts "ERROR - invalid participant code, code must start with E or R"
