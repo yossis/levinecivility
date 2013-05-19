@@ -10,7 +10,7 @@
 <p>You have <%=@starting_money%> dollars. You can choose to send as much as you like to your partner.
 Whatever you send will be multiplied by 3 and they may choose to send as much of that back to you as they like.</p>
 <% elsif @is_role2 %>
-<p>Your partner sent you <%=@money_from_partner%> dollars. As a result you get <%=@money_from_partner*3%> dollars. You can choose to return as much as you like to your partner.</p>
+<p>Your partner sent you <%=number_to_currency(@money_from_partner)%>. As a result you get <%=number_to_currency(@money_from_partner*3)%>. You can choose to return as much as you like to your partner.</p>
 <% end %>
 
 <%= form_tag({:controller => :collaboration, :action => :money_send}, :id=>'money_decide', :method => 'post') do %>
