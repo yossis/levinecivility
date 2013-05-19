@@ -10,12 +10,20 @@
 <p>You have <%=@starting_money%> dollars. You can choose to send as much as you like to your partner.
 Whatever you send will be multiplied by 3 and they may choose to send as much of that back to you as they like.</p>
 <% elsif @is_role2 %>
-<p>Your partner sent you <%=number_to_currency(@money_from_partner)%>. As a result you get <%=number_to_currency(@money_from_partner*3)%>. You can choose to return as much as you like to your partner.</p>
-<% end %>
+	<% if @money_from_partner==0%>
+	<p>Your partner sent you $0 so you received $0 and therefore cannot send any back to your partner. Please continue with the survey.</p>
+	<%else%>
+	<p>Your partner sent you <%=number_to_currency(@money_from_partner)%>. As a result you get <%=number_to_currency(@money_from_partner*3)%>. You can choose to return as much as you like to your partner.</p>
+	<% end %>
+<% end %>	
 
 <%= form_tag({:controller => :collaboration, :action => :money_send}, :id=>'money_decide', :method => 'post') do %>
   <%= label_tag(:money_to_send, "How much money will you send?") %>
-  <%= text_field_tag(:money_to_send) %>
+  <% if @money_from_partner==0 && @is_role2%>
+	<%= text_field_tag(:money_to_send, "0" ,disabled: true) %>
+  <% else%>
+  	<%= text_field_tag(:money_to_send) %>
+  <% end %>
   <%= submit_tag("Submit") %>
 <% end %>
 

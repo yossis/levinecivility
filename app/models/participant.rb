@@ -15,9 +15,9 @@ class Participant < Exportable
     if money_transfer.nil?
       true
     elsif pairing_role == 1
-      money_transfer<=CustomConfig.hash[:starting_money_constant] && money_transfer > 0      
+      money_transfer<=CustomConfig.hash[:starting_money_constant]      
     elsif pairing_role == 2
-      money_transfer<=(partner.money_transfer*3) && money_transfer > 0
+      money_transfer<=(partner.money_transfer*3) 
     end
   end  
     
