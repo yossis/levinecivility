@@ -87,10 +87,14 @@ class QualtricsController < ApplicationController
 
   def good_bye
     @participant = Participant.find_by_code(params[:participant_code])
-    @payout_code = 'LC' + encode_payout(@participant.final_payout.round).to_s
+
+    @payout_code = 'LC' + encode_payout(@participant.final_payout.round).to_s unless @participant.final_payout.nil?
 #    @payout_code = 'LC' + encode_payout(8).to_s
     puts @participant.inspect
-    render :text => "You are finished.<br/>  Amazon Turk payout code:#{@payout_code}"
+
+    finished_text = 'You are finished.<br/>'
+    finished_text += "Amazon Turk payout code:#{@payout_code}" unless @payout_code.nil?
+    render :text => finished_text
   end
 
   def no_partners

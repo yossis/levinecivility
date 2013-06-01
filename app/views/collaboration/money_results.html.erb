@@ -7,18 +7,18 @@ p.bold {font-weight:bold;}
 <p>Here are the final results from the money game!</p>
 
 <% if @role == 1 %>
-<p>You sent your partner <%=@first_transfer%> dollars.</p>
-<p>Your partner received <%=@first_transfer*3%> dollars. 
-<p>Your partner sent you <%=@second_transfer%> dollars.</p>
-<p>Your partner ended up with <%=@final_payout_role2%> dollars.</p>
-<p class='bold'>You ended up with <%=@final_payout_role1%> dollars.</p>
+<p>You sent your partner <%=number_to_currency(@first_transfer)%> .</p>
+<p>Your partner received <%=number_to_currency(@first_transfer*3)%>. 
+<p>Your partner sent you <%=@second_transfer.to_i<0 ? number_to_currency(@second_transfer) : "$0.00"%>.</p>
+<p>Your partner ended up with <%=@final_payout_role2.to_i>0 ? number_to_currency(@final_payout_role2) : '$0.00' %>.</p>
+<p class='bold'>You ended up with <%=@final_payout_role1.to_i>0 ? number_to_currency(@final_payout_role1) : '$0.00'%>.</p>
 
 <% elsif @role == 2 %>
-<p>Your partner sent you <%=@first_transfer%> dollars.</p>
-<p>You received <%=@first_transfer*3%> dollars. 
-<p>You sent them <%=@second_transfer%> dollars.</p>
-<p>Your partner ended up with <%=@final_payout_role1%> dollars.</p>
-<p class='bold'>You ended up with <%=@final_payout_role2%> dollars.</p>
+<p>Your partner sent you <%=number_to_currency(@first_transfer)%>.</p>
+<p>You received <%=number_to_currency(@first_transfer*3)%>. 
+<p>You sent them <%=@second_transfer.to_i>0 ? number_to_currency(@second_transfer) : '$0.00'%>.</p>
+<p>Your partner ended up with <%=@final_payout_role1.to_i>0 ? number_to_currency(@final_payout_role1) : '$0.00'%>.</p>
+<p class='bold'>You ended up with <%= @final_payout_role2.to_i>0 ? number_to_currency(@final_payout_role2) : "$0.00" %>.</p>
 
 <% end %>
 
