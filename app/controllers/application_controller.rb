@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   def find_participant_or_redirect
     if params[:participant_code]
       participant = Participant.find_by_code(params[:participant_code])
-      if participant.nil?
-        message = "Invalid participant code"
+      if participant.nil? || participant.index(/\s/) != nil
+        message = "Invalid participant code, Please do not use any spaces or charecters except numbers and letters!"
         puts message
         render :text => message
       else

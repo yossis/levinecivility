@@ -5,14 +5,14 @@ class QualtricsController < ApplicationController
   before_filter :find_participant_or_redirect, :except =>[:start, :no_participant, :participant_status, :report_score]
 
   def start
-    participant_code = params[:participant_code]
+    participant_code = params[:participant_code].match(/\s/)
     survey_code = params[:survey_code]
     if participant_code.nil? || survey_code.nil?
       puts "Cant start without participant code and survey code"
       no_participant
     else
       status = Participant.get_status_by_code(participant_code)
-      session[:participant_code] = params[:participant_code]  ##this is also set in participants#create
+      session[:participant_code] = params[:participant_code].match(/\s/)  ##this is also set in participants#create
       session[:survey_code] = params[:survey_code]
       case status
       when 'noexist'
@@ -101,7 +101,7 @@ class QualtricsController < ApplicationController
     if session[:participant_code]
       @participant = Participant.find_by_code(session[:participant_code])
     else
-      @participant = Participant.find_by_code(params[:participant_code])
+      @participant = Participant.find_by_code(params[:participant_code].match(/\s/))
     end
     session[:participant_id] = @participant.id
 
@@ -128,7 +128,7 @@ class QualtricsController < ApplicationController
 
   def participant_status
     if params[:participant_code]
-      status = Participant.get_status_by_code(params[:participant_code])
+      status = Participant.get_status_by_code(params[:participant_code].match(/\s/))
       render :json => {:status => status}
     else
       render :json => {:error => "Must supply participant code"}
