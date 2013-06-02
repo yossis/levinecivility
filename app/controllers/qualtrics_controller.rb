@@ -5,7 +5,7 @@ class QualtricsController < ApplicationController
   before_filter :find_participant_or_redirect, :except =>[:start, :no_participant, :participant_status, :report_score]
 
   def start
-    participant_code = params[:participant_code].match(/\s/)
+    participant_code = params[:participant_code]
     survey_code = params[:survey_code]
     if participant_code.nil? || survey_code.nil?
       puts "Cant start without participant code and survey code"

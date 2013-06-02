@@ -20,7 +20,7 @@ Whatever you send will be multiplied by 3 and they may choose to send as much of
 <%= form_tag({:controller => :collaboration, :action => :money_send}, :id=>'money_decide', :method => 'post') do %>
   <%= label_tag(:money_to_send, "How much money will you send?") %>
   <% if @money_from_partner==0 && @is_role2%>
-	<%= text_field_tag(:money_to_send, "0" ,disabled: true) %>
+	<%= text_field_tag(:money_to_send, "0" ,readonly: true) %>
   <% else%>
   	<%= text_field_tag(:money_to_send) %>
   <% end %>
