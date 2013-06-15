@@ -113,6 +113,10 @@ class QualtricsController < ApplicationController
     render :text => 'Timed Out'
   end
 
+  def abandoned
+    render :text => 'Timed Out - Session abandoned'
+  end
+
   #webservices
   def report_score
     if params[:participant_code] && params[:score]
